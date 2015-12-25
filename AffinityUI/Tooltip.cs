@@ -60,7 +60,10 @@ namespace AffinityUI
 
         public void Layout()
         {
-            var renderer = owner.Context.Owner.gameObject.GetComponent<TooltipRenderer>();
+			if(! owner.Context.Owner.IsMonoBehaviour)
+				return;
+
+            var renderer = owner.Context.Owner.GameObject.GetComponent<TooltipRenderer>();
             if (renderer == null ||
                 string.IsNullOrEmpty(tooltip.Value) ||
                 Event.current.type != EventType.Repaint)

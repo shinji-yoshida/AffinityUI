@@ -11,7 +11,7 @@ namespace AffinityUI
 
         internal LayoutTarget Layout { get; set; }
 
-        internal MonoBehaviour Owner { get; set; }
+        internal UIOwner Owner { get; set; }
 
         internal Control Content { get; set; }
 
@@ -41,14 +41,14 @@ namespace AffinityUI
             return null;
         }
 
-        public static UI GUI(MonoBehaviour owner, Control content)
+        public static UI GUI(UIOwner owner, Control content)
         {
             var ui = new UI{ Layout = LayoutTarget.GUI, Owner = owner, Content = content };
             content.Context = ui;
             return ui;
         }
 
-        public static UI GUILayout(MonoBehaviour owner, Control content)
+        public static UI GUILayout(UIOwner owner, Control content)
         {
             var ui = new UI { Layout = LayoutTarget.GUILayout, Owner = owner, Content = content };
             content.Context = ui;
