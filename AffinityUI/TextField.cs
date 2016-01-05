@@ -70,7 +70,10 @@ namespace AffinityUI
         /// </summary>
         protected override void Layout_GUILayout()
         {
-
+			if((string)Text() == null) {
+				Debug.LogError("text is null");
+				return;
+			}
             Text(GUILayout.TextField(Text(), maxLength, Style(), LayoutOptions()));
         }
     }
